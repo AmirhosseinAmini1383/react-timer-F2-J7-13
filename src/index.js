@@ -1,11 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import "./style.css";
 
 class Timer extends React.Component{
+  constructor(){
+    super();
+    this.state={
+      time :new Date().toLocaleTimeString()
+    }
+  }
   render(){
+    setInterval(()=>{
+      this.setState({
+        time :new Date().toLocaleTimeString()
+      })
+    },1000)
     return(
-      <h2>
-          Time it is {new Date().toLocaleTimeString()} 
+      <h2 className='timer'>
+          Time it is {this.state.time} 
       </h2>
     )
   }
@@ -24,7 +36,7 @@ class Hello extends React.Component{
 class App extends React.Component{
   render(){
     return (
-      <div>
+      <div className='main'>
         <Hello/>
         <Timer/>
       </div>
@@ -33,14 +45,14 @@ class App extends React.Component{
 }
 // const elem=new App;
 
-const Tick=()=>{
+// const Tick=()=>{
   const root = ReactDOM.createRoot(document.getElementById('root'));
   root.render(
-    // elem.render()
     <App/>
+    // elem.render()
     );
-}
+// }
 
-setInterval(()=>{
-  Tick();
-},1000)
+// setInterval(()=>{
+//   Tick();
+// },1000)
