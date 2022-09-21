@@ -1,6 +1,16 @@
+:root{
+    --white:#D5D8DC;
+    --blue:#154360;
+    --gray:#5D6D7E;
+    --box-shadow-Color:#AED6F1;
+    --btnBlue:#2980B9;
+    --btnGreen:#27AE60;
+    --btnRed:#CB4335;
+}
 body{
     margin: 0;
     padding: 0;
+    font-family: vazir;
 }
 .main{
     width: 100%;
@@ -9,18 +19,55 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    color: rgb(0, 153, 255);
-    background: rgb(0, 0, 0);
+    color: var(--white);
+    background: var(--gray);
 }
 .timer{
-    width: 300px;
-    height: 300px;
-    margin-top: 50px;
-    border-radius: 50%;
-    box-shadow: 0 0 20px rgba(5, 45, 86, 0.866);
+    width: 200px;
+    height: 80px;
+    margin-top: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px var(--box-shadow-Color);
     align-items: center;
     justify-content: center;
     display: flex;
-    background: rgb(0, 0, 0);
-    color: rgb(0, 153, 255);
+    background: var(--blue);
+    color: var(--white);
+    margin-bottom: 50px;
+}
+.btnChange{
+    width: 120px;
+    height: 50px;
+    text-align: center;
+    font-size: 20px;
+    font-family: lalezar;
+    color: var(--white);
+    border-radius: 5px;
+    margin: 5px;
+    background: var(--btnBlue);
+    border: 0;
+}
+.btnStart{
+    width: 120px;
+    height: 50px;
+    text-align: center;
+    font-size: 20px;
+    font-family: lalezar;
+    color: var(--white);
+    border-radius: 5px;
+    margin: 5px;
+    background: var(--btnGreen);
+    border: 0;
+}
+.btnStop{
+    width: 120px;
+    height: 50px;
+    text-align: center;
+    font-size: 20px;
+    font-family: lalezar;
+    color: var(--white);
+    border-radius: 5px;
+    margin: 5px;
+    background: var(--btnRed);
+    border: 0;
 }
