@@ -6,6 +6,7 @@
     --btnBlue:#2980B9;
     --btnGreen:#27AE60;
     --btnRed:#CB4335;
+    --btnPurple:#AF7AC5;
 }
 body{
     margin: 0;
@@ -23,10 +24,10 @@ body{
     background: var(--gray);
 }
 .timer{
-    width: 200px;
-    height: 80px;
+    width: 300px;
+    height: 100px;
     margin-top: 30px;
-    border-radius: 10px;
+    border-radius: 20px;
     box-shadow: 0 0 20px var(--box-shadow-Color);
     align-items: center;
     justify-content: center;
@@ -35,39 +36,33 @@ body{
     color: var(--white);
     margin-bottom: 50px;
 }
-.btnChange{
-    width: 120px;
+.btn{
+    width: 150px;
     height: 50px;
     text-align: center;
     font-size: 20px;
     font-family: lalezar;
     color: var(--white);
-    border-radius: 5px;
+    border-radius: 5px; 
+    border: 0;
+}
+.btn:hover{
+    font-size: 22px;
+    box-shadow: 0 0 10px var(--box-shadow-Color);
+}
+.btnChange{
     margin: 5px;
     background: var(--btnBlue);
-    border: 0;
 }
 .btnStart{
-    width: 120px;
-    height: 50px;
-    text-align: center;
-    font-size: 20px;
-    font-family: lalezar;
-    color: var(--white);
-    border-radius: 5px;
     margin: 5px;
     background: var(--btnGreen);
-    border: 0;
 }
 .btnStop{
-    width: 120px;
-    height: 50px;
-    text-align: center;
-    font-size: 20px;
-    font-family: lalezar;
-    color: var(--white);
-    border-radius: 5px;
     margin: 5px;
     background: var(--btnRed);
-    border: 0;
+}
+.btnReset{
+    margin: 5px;
+    background: var(--btnPurple);
 }

@@ -8,58 +8,75 @@ class Timer extends React.Component {
   constructor() {
     super();
     this.state = {
-      time: 10
+      hour:0,
+      minute:0,
+      second:0,
+      isStart:false
     }
   }
-
-  componentDidMount(){
-    console.log("componentDidMount");
-    // interval = setInterval(() => {
-    //   this.setState({
-    //       time: this.state.time-1
-    //     })
-    //   }, 1000);
-  }
-
-  componentDidUpdate(){
-    if(this.state.time == "0"){
-      clearInterval(interval)
-    }else{
-      console.log(this.state.time);
-    }
-  }
-
-  componentWillUnmount(){
-    console.log("componentWillUnmount + Amirho3ein");
-  }
-
-  Start=()=>{
-    interval = setInterval(() => {
-      this.setState({
-          time: this.state.time-1
+  StartInterval=()=>{
+      if(this.state.isStart == false){
+        this.setState({
+          isStart:true 
         })
-      }, 1000);
-  }
-  Stop=()=>{
+        interval = setInterval(() => {
+          this.setState({
+              second:this.state.second+1
+            })
+            if(this.state.second == 60){
+              this.setState({
+                second:0,
+                minute:this.state.minute+1
+              })
+            }
+            if(this.state.minute == 60){
+              this.setState({
+                minute:0,
+                hour:this.state.hour+1
+              })
+            }
+          }, 1000)
+      }
+    }
+  
+  StopInterval=()=>{
+    this.setState({
+      isStart:false 
+    })
     clearInterval(interval)
+  }
+
+  ResetInterval=()=>{
+    this.StopInterval();
+    this.setState({
+      hour:0,
+      minute:0,
+      second:0,
+    })
   }
 
   render() {
    console.log("render");
+   let hour=this.state.hour;
+   let minute=this.state.minute;
+   let second=this.state.second;
     return ( 
       <>
         <h2 className = 'timer' >
-          Time it is {this.state.time} 
+          Time it is {`${hour > 9 ? hour : "0" + hour} : ${minute > 9 ? minute : "0" + minute} : ${second > 9 ? second : "0" + second}`} 
         </h2>
         <div>
-          <button className='btnChange' onClick={this.props.handleSetTitle}>
+          <button className='btn btnChange' onClick={this.props.handleSetTitle}>
             Change Text
           </button>
-          <button className='btnStart' onClick={this.Start}>
+          <button className='btn btnStart' onClick={this.StartInterval}>
             Start
           </button>
-          <button className='btnStop' onClick={this.Stop}>
+          <button className='btn btnStop' onClick={this.StopInterval}>
             Stop
+          </button>
+          <button className='btn btnReset' onClick={this.ResetInterval}>
+            Reset
           </button>
         </div>
       </>
